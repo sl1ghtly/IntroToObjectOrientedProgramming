@@ -1,0 +1,20 @@
+public class Book
+{
+   // instance variables
+   private String author;
+   private String title;
+   private int year;
+   private double price;
+   
+   // constructor - do not change this code
+   public Book(String authorIn, String titleIn, int yearIn)
+   {
+      author = authorIn;
+      title = titleIn;
+      year = yearIn; 
+      price = 0;  
+   }
+
+
+
+}

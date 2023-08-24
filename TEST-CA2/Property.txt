@@ -1,0 +1,59 @@
+public class Property
+{
+	//instance variables
+   private int propId;
+   private String location;
+   private double price;  //price per night
+   private int noOfGuests;
+    
+	
+	//constructors
+   public Property(int propIdIn, String locationIn, int noOfGuestsIn, double priceIn)
+   {
+      propId = propIdIn;
+      location = locationIn;
+      price = priceIn;
+      noOfGuests = noOfGuestsIn;
+   }
+
+	
+	//methods
+   public void setPrice(double priceIn)
+   {
+      price = priceIn;
+   }
+	
+   public double getPrice()
+   {
+      return price;	
+   }
+	
+   public String getLocation()
+   {
+      return location;
+   }
+	
+   public int getPropId()
+   {
+      return propId;
+   }
+   
+   public int getNoOfGuests()
+   {
+      return noOfGuests;
+   }
+   
+   // add a toString, equals 
+   
+   //------------insert your code here
+  
+
+
+   //------------insert your code here
+  
+  
+  
+
+
+  
+}
