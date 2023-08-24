@@ -1,0 +1,372 @@
+public class BankAccount
+{
+	//instance variables
+	private double balance;
+	private int  accNumber;
+	
+	public BankAccount(int accNoIn)
+	{
+		accNumber = accNoIn;
+		balance = 0.0; 
+	}
+
+	public BankAccount(int accNoIn,double openBal)
+	{
+		accNumber = accNoIn;
+		balance = openBal; 
+	}
+	//methods
+
+	//return the balance
+	public double getBalance()
+	{
+		return balance;
+	}
+	
+	//reduce the balance by amount
+	public void withdraw(double amount)
+	{
+		if(amount <= balance) //if enough money
+			balance = balance - amount; //balance -=amount
+	}
+	//increase the balance by amount
+	public void deposit(double amount)
+	{
+		balance = balance + amount;	
+	}
+	
+	public int  getAccNumber()
+	{
+		return accNumber;	
+	}
+	
+}//end class
+
+public class BankAccountTester
+{
+   public static void main(String [] args)
+   {  
+	   // create an instance of type BankAccount
+	  	BankAccount myAccount = new BankAccount(145);
+	   BankAccount mySav = new BankAccount(456, 1000);
+
+	   System.out.println("My account no " +myAccount.getAccNumber() );
+		System.out.println("My account Initial Balance " +myAccount.getBalance() );		
+		 	
+
+		System.out.println("My saving no " +mySav.getAccNumber() );
+		System.out.println("my saving Initial Balance " +mySav.getBalance() );
+
+   }
+}
+
+
+//***
+// This class implements a clock. It has three
+// instance variables to store hours, minutes, and seconds,
+// and a number of simple methods to implement operations on time.
+//***
+
+   public class Clock
+   {
+      private int hrs;     
+      private int mins; 
+      private int secs;    
+   
+    //Method to set the hours
+      public void setHours(int hrsIn)
+      {
+         if (0 <= hrsIn && hrsIn < 24)
+            hrs = hrsIn;
+         else
+            hrs = 0;
+      } //end setHours
+   
+    //Method to set the minutes
+      public void setMinutes(int minsIn)
+      {
+         if (0 <= minsIn && minsIn < 60)  //if time is valid
+            mins = minsIn;
+         else
+            mins = 0;
+      } //end setMinutes
+   
+   //Method to set the seconds
+      public void setSeconds(int secsIn)
+      {
+         if (0 <= secsIn && secsIn < 60)
+            secs = secsIn;
+         else
+            secs = 0;
+      } //end setSeconds
+   
+      public void setTime(int hrsIn, int minsIn, int secsIn)
+      {
+       	   hrs = hrsIn;  
+       		mins = minsIn;
+      		secs = secsIn;
+      }
+   
+    //Method to return the hours
+      public int getHours()
+      {
+         return hrs;
+      }
+   
+   //Method to return the minutes
+      public int getMinutes()
+      {
+         return mins;
+      }
+   
+    //Method to return the seconds
+      public int getSeconds()
+      {
+         return secs;
+      } 
+   
+      //Method to increment the time by one second
+      public void tickTock()
+      {
+         secs++;
+      
+         if (secs > 59)
+         {
+            secs = 0;//reset seconds
+            mins++; //increment minutes
+         }
+         if (mins > 59)
+         {
+            mins = 0;
+            hrs++; //increment hours
+         }
+         if (hrs > 23)
+            hrs = 0;  
+      
+      }
+   
+
+   }
+
+
+public class ClockTester
+{
+   public static void main(String [] args)
+   {  
+	   // create an instance of type Clock
+	   Clock myclock = new Clock();	  	   
+	
+      //to see the time have to call all three methods
+      System.out.println("The time is : " +myclock.getHours() +":"
+         + myclock.getMinutes() +":"  +myclock.getSeconds() ); 
+
+      //System.out.println(myclock);  
+		for(int i = 0; i < 10000; i++)
+			myclock.tickTock();
+			
+		 System.out.println("The time is : " +myclock.getHours() +":"
+         + myclock.getMinutes() +":"  +myclock.getSeconds() ); 
+            
+      System.out.println(myclock);
+		
+   }
+}
+
+
+
+public class Employee
+{
+	// instance variables
+	private int empNo;
+	private double salary;
+	private String name;
+
+	public Employee(int empNoIn, String nameIn)
+	{
+		empNo = empNoIn;
+		name = nameIn;
+		salary = 0.0; 
+	}
+	
+	public Employee(int empNoIn, String nameIn, double salaryIn)
+	{
+		empNo = empNoIn;
+		name = nameIn;
+		salary = salaryIn;
+	}
+
+	
+	// methods
+	
+	
+	public int getEmpNo()
+	{	
+		return empNo;		
+	}
+
+	public void setName(String nameIn)
+	{	
+		name  = nameIn;		
+	}
+	
+	public String getName()
+	{	
+		return name;		
+	}
+	
+	public void setSalary(double salaryIn)
+	{	
+		salary  = salaryIn;		
+	}
+	
+	public double getSalary()
+	{	
+		return salary;		
+	}
+	
+	public void raiseSalary(double raise)
+	{
+		salary += raise;
+	}
+	
+	public void reduceSalary(double reduction)
+	{
+		salary -= reduction;
+	}
+	public double calcMonthlyPay()
+	{
+		return salary/12;
+	}
+	
+	public double calcWeeklyPay()
+	{
+		return salary/52;
+	}
+	public double calcBonus(double percentBonus)
+	{
+		return  salary * (percentBonus/100);
+	}
+
+
+}// end of class
+
+
+public class EmployeeTester
+{
+   public static void main(String [] args)
+   {  
+	   // create an instance of type Employee
+	   Employee emp1 = new Employee(123, "Joe bloggs");
+	   Employee emp2 = new Employee(334, "Jane bloggs", 15000);
+	   // use methods to check initial values
+	   // use methods to retrieve values of instance variables
+	   System.out.println("employee no: " + emp1.getEmpNo());
+		System.out.println("Name: " + emp1.getName());
+	   System.out.println("Salary: " + emp1.getSalary());   
+	  
+	  // use methods to retrieve values of instance variables
+	   System.out.println("employee no: " + emp2.getEmpNo());
+		System.out.println("Name: " + emp2.getName());
+	   System.out.println("Salary: " + emp2.getSalary());   
+
+	   System.out.println("Employee 1 Details: " + emp1);
+      System.out.println("Employee 2 Details: " + emp2);
+   }
+}
+
+
+// Oblong Class
+// Class representing a four sided rectangular shape
+
+public class Oblong
+{
+	// instance variables
+	private double height;
+	private double width;
+
+	//constructor
+	public Oblong()
+	{
+		height = 0;
+		width = 0.0; 
+	}
+	
+	public Oblong(double widthIn, double heightIn)
+	{
+		if(heightIn > 0)  //if its +ve
+			height = heightIn;
+		else 
+			height = 0; 
+		
+		if(widthIn > 0)
+			width = widthIn;
+		else 
+			width = 0;	
+	}
+
+	// methods
+	public double getHeight()
+	{	
+		return height;		
+	}
+
+	public double getWidth()
+	{	
+		return width;		
+	}
+
+	public void setWidth(double widthIn)
+	{	
+		width = widthIn;
+	}
+
+	public void setHeight(double heightIn)
+	{	
+		height = heightIn;
+	}
+	
+	public double calculateArea()
+	{	
+		return width * height;
+	}	
+	
+	public double calculatePerim()
+	{	
+		return (width + height) * 2;
+	}	
+	
+	public boolean isSquare()
+	{
+		return width == height;
+	}
+	
+	public void increaseSize(double widthAmt, double heightAmt)
+	{
+		width = width + widthAmt; 
+		height = width + heightAmt;
+	}
+
+
+}// end of class
+
+
+public class OblongTester
+{
+   public static void main(String [] args)
+   {  
+	   // create an instance of type Oblong
+	   Oblong o1 = new Oblong();
+	   Oblong o2 = new Oblong(-10, 5);
+	   
+	   System.out.println(o1);
+      System.out.println(o2);
+      
+      if(o1 == o2)
+      {
+         System.out.println("These oblongs are the same");
+      }
+      
+
+         
+   }
+}
