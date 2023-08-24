@@ -1,0 +1,32 @@
+public class BoardGame
+{
+   private String title;
+   private String publisher;
+   private int numberOfPlayers;
+   
+   public BoardGame(String title, String publisher, int numberOfPlayers)
+   {
+      title = title;
+      publisher = publisher;
+      numberOfPlayers = numberOfPlayers;
+   }
+   
+   public void setNumberOfPlayers(int playersIn)
+   {
+      playersIn = numberOfPlayers;
+   }
+   
+   public String toString()
+   {
+      String str = "Title " + title;
+      str = str + " Publisher: " + publisher;
+      str = str + " Number of players: " + numberOfPlayers;
+      return str;
+   }
+   
+   public String getFullTitle()
+   {
+      str = title + " (" + publisher + ")";
+      return str; 
+   }
+}

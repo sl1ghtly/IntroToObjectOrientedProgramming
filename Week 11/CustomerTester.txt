@@ -1,0 +1,25 @@
+public class CustomerTester
+{
+   public static void main(String [] args)
+   {
+      Address a1 = new Address("12 Main Street", "Letterkenny", "Co. Donegal", "F93 CT45");
+               
+      Product p1 = new Product("LG 50 Inch TV", 750, 12);
+      Product p2 = new Product("MacBook Pro", 1299, 36);
+      Product p3 = new Product("iPad Air", 629, 24);
+      
+      Customer c1 = new Customer("Mary Smith", a1, "087 4567891");
+      
+      c1.addProduct(p1);
+      c1.addProduct(p2);
+      c1.addProduct(p3);
+      
+      c1.removeProduct(p2);
+      
+      System.out.print(c1);
+      
+      
+      
+
+   }
+}
